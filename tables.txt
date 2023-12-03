@@ -1,0 +1,63 @@
+CREATE TABLE Authors(
+    id INTEGER PRIMARY KEY,
+    first_name VARCHAR(255),
+    second_name VARCHAR(255)
+);
+
+CREATE TABLE Books (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255),
+    publication_date DATE,
+    price NUMERIC,
+    available_stock INTEGER,
+    rate NUMERIC,
+    author_id INTEGER,
+    FOREIGN KEY (author_id) REFERENCES Authors(id)
+);
+
+CREATE TABLE Customers(
+    id INTEGER PRIMARY KEY,
+    first_name VARCHAR(255),
+    second_name VARCHAR(255),
+    street VARCHAR(255),
+    city VARCHAR(255),
+    phone_number VARCHAR(255),
+    postal_code VARCHAR(255),
+    email VARCHAR(255)
+);
+
+CREATE TABLE Orders (
+    id INTEGER PRIMARY KEY,
+    customer_id INTEGER,
+    book_id INTEGER,
+    date DATE,
+    cost NUMERIC,
+    FOREIGN KEY (customer_id ) REFERENCES Customers(id),
+    FOREIGN KEY (book_id) REFERENCES Books(id)
+);
+
+----------------------------------------------------------
+
+    
+INSERT INTO Authors (id, first_name, second_name) VALUES
+(1, 'John', 'Doe'),
+(2, 'Jane', 'Smith'),
+(3, 'Robert', 'Johnson');
+
+INSERT INTO Books (id, name, publication_date, price, available_stock, rate, author_id) VALUES
+(1, 'Book1', '2022-01-01', 19.99, 50, 4.5, 1),
+(2, 'Book2', '2022-02-15', 24.99, 30, 4.0, 2),
+(3, 'Book3', '2022-03-20', 14.99, 3, 4.8, 3),
+(4, 'Book4', '2022-04-10', 29.99, 2, 4.2, 1);
+
+
+INSERT INTO Customers (id, first_name, second_name, street, city, phone_number, postal_code, email) VALUES
+(1, 'Alice', 'Johnson', '123 Main St', 'Cityville', '555-1234', '12345', 'alice@email.com'),
+(2, 'Bob', 'Miller', '456 Oak St', 'Townburg', '555-5678', '67890', 'bob@email.com'),
+(3, 'Charlie', 'Smith', '789 Pine St', 'Villagetown', '555-9876', '98765', 'charlie@email.com');
+
+INSERT INTO Orders (id, customer_id, book_id, date, cost) VALUES
+(1, 1, 1, '2022-05-01', 19.99),
+(2, 2, 3, '2022-05-05', 14.99),
+(3, 3, 2, '2022-05-10', 24.99),
+(4, 1, 4, '2022-05-15', 29.99);
