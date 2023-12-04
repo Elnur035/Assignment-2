@@ -1,18 +1,17 @@
-## Getting Started
+Database Connectivity (connectToDatabase, closeDBConnection):
+It is about establishing and closing the connection to the PostgreSQL database using JDBC.
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+SQL Query Execution (executeSQLQuery):
+Executes SQL queries based on the provided query string. Handles both data retrieval (SELECT) and manipulation (INSERT, UPDATE, DELETE).
 
-## Folder Structure
+Transaction Management (placeOrder, isStockAvailable, updateAvailableStock):
+placeOrder: Handles order placement after checking book stock availability and updating stock.
+isStockAvailable: Checks if a book's stock is available.
+updateAvailableStock: Decreases the available stock count after a successful order.
 
-The workspace contains two folders by default, where:
+Metadata Access (displayDatabaseInfo, displayTableInfo):
+displayDatabaseInfo: Retrieves and displays database metadata (name, version).
+displayTableInfo: Fetches and displays table columns, primary keys, and foreign keys.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Main Method Execution
+Connects to the database, creates tables, populates them with sample data, and demonstrates functionalities: displaying database metadata, placing an order for a book.
