@@ -1,3 +1,8 @@
+Main folder is SRC that contains App.java
+The needed file is in LIB that is jdbc driver file.
+
+Just running App.java you can get desired output by calling functions properly
+
 Database Connectivity (connectToDatabase, closeDBConnection):
 It is about establishing and closing the connection to the PostgreSQL database using JDBC.
 
